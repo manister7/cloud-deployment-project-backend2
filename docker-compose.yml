@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+
+  orders:
+    build:
+      context: .
+
+    container_name: be2-orders
+
+    ports:
+      - "8002:8000"
+
+    environment:
+      DB_HOST: host.docker.internal
+      DB_NAME: appdb
+      DB_USER: appuser
+      DB_PASSWORD: "P@ssw0rd@100"
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
